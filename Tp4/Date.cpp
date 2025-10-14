@@ -1,49 +1,39 @@
+#include "Date.h"
 #include <iostream>
 using namespace std;
 
-class Date {
-private:
-    int day;
-    int month;
-    int year;
-
-    bool checkDate(int j, int m, int a) {
-        return (j >= 1 && j <= 31) && (m >= 1 && m <= 12) && (a >= 2000 && a <= 2050);
+Date::Date(int d, int m, int y) {
+    if (checkDate(d, m, y)) {
+        day = d;
+        month = m;
+        year = y;
+    } else {
+        day = 1;
+        month = 1;
+        year = 2000;
     }
+}
 
-public:
-    Date(int d = 1, int m = 1, int y = 2000) {
-        if (checkDate(d, m, y)) {
-            day = d;
-            month = m;
-            year = y;
-        } else {
-            day = 1;
-            month = 1;
-            year = 2000;
-        }
-    }
+bool Date::checkDate(int j, int m, int a) {
+    return (j >= 1 && j <= 31) && (m >= 1 && m <= 12) && (a >= 2000 && a <= 2050);
+}
 
-    void affiche() const {
-        cout << day << "/" << month << "/" << year << endl;
-    }
+void Date::affiche() const {
+    cout << day << "/" << month << "/" << year << endl;
+}
 
-    int getDay() const { return day; }
-    int getMonth() const { return month; }
-    int getYear() const { return year; }
+int Date::getday() const { return day; }
+int Date::getmonth() const { return month; }
+int Date::getyear() const { return year; }
 
-    void setDay(int d) {
-        if (checkDate(d, month, year)) day = d;
-        else cout << "Jour invalide !" << endl;
-    }
+void Date::setday(int d) {
+    if (checkDate(d, month, year)) day = d;
+}
 
-    void setMonth(int m) {
-        if (checkDate(day, m, year)) month = m;
-        else cout << "Mois invalide !" << endl;
-    }
+void Date::setmonth(int m) {
+    if (checkDate(day, m, year)) month = m;
+}
 
-    void setYear(int y) {
-        if (checkDate(day, month, y)) year = y;
-        else cout << "Année invalide !" << endl;
-    }
-};
+void Date::setyear(int y) {
+    if (checkDate(day, month, y)) year = y;
+}
