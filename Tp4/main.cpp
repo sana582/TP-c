@@ -1,32 +1,27 @@
+#include <iostream>
 #include "Date.h"
 #include "Heure.h"
 #include "RDV.h"
-#include <iostream>
-#include <iostream>
-using namespace std;
-
+#include <string>
 
 int main() {
-    Date d1(29, 1, 2002);
-    Date d2(31, 2, 2002);
-    d1.affiche();
-    d2.affiche();
-    d1.setday(30);
-    d1.setmonth(2);
-    d1.setyear(2003);
-    d1.affiche();
-    d2.setday(2);
-    d2.setmonth(3);
-    d2.setyear(2023);
-    d2.affiche();
-    d1.setyear(2030);
-    d1.affiche();
-     RDV monRDV;
-    monRDV.saisie();
-    monRDV.affiche();
-     RDV rdv;
-    rdv.saisie();
-    rdv.affiche();
+    Date d1(15,10,2025);
+    Heure h1(14,30);
+    RDV r1(d1,h1,"Salle A");
+    r1.setNombreDeParticipants(2);
+    r1.setParticipant(0,"Alice");
+    r1.setParticipant(1,"Bob");
+    std::cout << "RDV 1: " << std::endl;
+    r1.affiche();
+
+    RDV r2;
+    std::cout << "Saisie RDV 2" << std::endl;
+    r2.saisie();
+    std::cout << "RDV 2: " << std::endl;
+    r2.affiche();
+
+    if (!r1.estCompatibleAvec(r2)) std::cout << "Les RDV sont incompatibles (meme date et heure)." << std::endl;
+    else std::cout << "Les RDV sont compatibles." << std::endl;
+
     return 0;
-   
 }

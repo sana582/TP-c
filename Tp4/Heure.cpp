@@ -1,26 +1,30 @@
-#include <iostream>
 #include "Heure.h"
+#include <iostream>
 
-Heure::Heure() : heures(0), minutes(0) {}
-
-Heure::Heure(int h, int m) : heures(h), minutes(m) {}
-
-int Heure::getHeures() const {
-    return heures;
+bool Heure::checkHeure(int h, int m) const {
+    if (h < 0 || h > 23) return false;
+    if (m < 0 || m > 59) return false;
+    return true;
 }
 
-int Heure::getMinutes() const {
-    return minutes;
-}
-
-void Heure::setHeures(int h) {
-    heures = h;
-}
-
-void Heure::setMinutes(int m) {
-    minutes = m;
+Heure::Heure(int h, int m) {
+    if (!checkHeure(h,m)) {
+        heures = 0;
+        minutes = 0;
+    } else {
+        heures = h;
+        minutes = m;
+    }
 }
 
 void Heure::affiche() const {
-    std::cout << heures << "h" << (minutes < 10 ? "0" : "") << minutes << std::endl;
+    if (heures < 10) std::cout << "0";
+    std::cout << heures << ":";
+    if (minutes < 10) std::cout << "0";
+    std::cout << minutes;
 }
+
+int Heure::getHeures() const { return heures; }
+int Heure::getMinutes() const { return minutes; }
+void Heure::setHeures(int h) { if (checkHeure(h, minutes)) heures = h; }
+void Heure::setMinutes(int m) { if (checkHeure(heures, m)) minutes = m; }

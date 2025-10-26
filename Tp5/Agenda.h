@@ -6,12 +6,10 @@
 class Agenda {
 private:
     NoeudRDV* premier;
-
 public:
     Agenda();
-    Agenda(const Agenda& autre);
+    Agenda(const Agenda& a);
     ~Agenda();
-
     void ajoute(const RDV& r);
     void enleve();
     void affiche() const;

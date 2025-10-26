@@ -5,19 +5,19 @@
 
 class Date {
 private:
-    int day, month, year;
-    bool checkDate(int j, int m, int a);
-
+    int jour;
+    int mois;
+    int annee;
+    bool checkDate(int j, int m, int a) const;
 public:
-    Date();  
-    Date(int d, int m, int y);  
+    Date(int j = 1, int m = 1, int a = 2000);
     void affiche() const;
-    int getday() const; 
-    int getmonth() const;
-    int getyear() const;
-    void setday(int d);
-    void setmonth(int m);
-    void setyear(int y);
+    int getJour() const;
+    int getMois() const;
+    int getAnnee() const;
+    void setJour(int j);
+    void setMois(int m);
+    void setAnnee(int a);
 };
 
 #endif

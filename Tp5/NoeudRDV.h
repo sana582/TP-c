@@ -1,19 +1,18 @@
 #ifndef NOEUDRDV_H
 #define NOEUDRDV_H
 
-#include "../Tp4/RDV.h"
+#include "../tp4/RDV.h"
 
 class NoeudRDV {
 private:
-    RDV rdv;
+    RDV info;
     NoeudRDV* suivant;
-
 public:
     NoeudRDV(const RDV& r);
     NoeudRDV(const RDV& r, NoeudRDV* s);
-    RDV getRDV() const;
-    void setRDV(const RDV& r);
+    RDV getInfo() const;
     NoeudRDV* getSuivant() const;
+    void setInfo(const RDV& r);
     void setSuivant(NoeudRDV* s);
 };
 
