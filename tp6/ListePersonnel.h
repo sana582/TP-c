@@ -3,7 +3,7 @@
 #include "Personnel.h"
 
 class ListePersonnel {
-    Personnel* tab[100];
+    Personnel** tab;
     int nb;
     int taille;
 public:
