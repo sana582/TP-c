@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-ListePersonnel::ListePersonnel(int t){
-    taille = t;
+ListePersonnel::ListePersonnel(){
+    taille = 10;                
     nb = 0;
     tab = new Personnel*[taille];
 }
@@ -26,3 +26,7 @@ void ListePersonnel::afficherSalaires(){
         cout << tab[i]->getNom() << " : " << tab[i]->calculSalaire() << endl;
     }
 }
+ListePersonnel::~ListePersonnel() {
+    delete[] tab;
+}
+

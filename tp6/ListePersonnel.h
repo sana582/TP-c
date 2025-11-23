@@ -7,7 +7,7 @@ class ListePersonnel {
     int nb;
     int taille;
 public:
-    ListePersonnel(int t=5);
+    ListePersonnel();
     void doubleTableau();
     void ajout(Personnel* p);
     void afficherSalaires();
