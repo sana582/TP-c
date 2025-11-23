@@ -9,7 +9,7 @@ public:
     Personnel(string n="", string p="", float s=0);
     float getSalaire();
     void setSalaire(float s);
-    virtual float calculSalaire();
+    virtual float calculSalaire() const = 0; 
     virtual void affiche();
 };
 #endif
