@@ -29,4 +29,32 @@ void ListePersonnel::afficherSalaires(){
 ListePersonnel::~ListePersonnel() {
     delete[] tab;
 }
+int main() {
+    ListePersonnel liste;
+
+    PersonnelAdmin* pa = new PersonnelAdmin("Sana", "Riahi", 1200, 10, 15);
+    PersonnelAdmin* pa2 = new PersonnelAdmin("Salima", "Naimi", 1500, 8, 20);
+    EnseignantPermanent* ep = new EnseignantPermanent("Sana", "Riahi", 2000, "B101", 3, 150);
+    EnseignantPermanent* ep2 = new EnseignantPermanent("Salima", "Naimi", 2500, "B102", 4, 200);
+    EnseignantVacataire* ev = new EnseignantVacataire("Sana", "Riahi", 0, "C01", 20, 25);
+    EnseignantVacataire* ev2 = new EnseignantVacataire("Salima", "Naimi", 0, "C02", 15, 30);
+
+    liste.ajout(pa);
+    liste.ajout(pa2);
+    liste.ajout(ep);
+    liste.ajout(ep2);
+    liste.ajout(ev);
+    liste.ajout(ev2);
+
+    liste.afficherSalaires();
+
+    delete pa;
+    delete pa2;
+    delete ep;
+    delete ep2;
+    delete ev;
+    delete ev2;
+
+    return 0;
+}
 
