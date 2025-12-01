@@ -26,6 +26,6 @@ Vector operator*(double scalar) const;
 friend Vector operator*(double scalar, const Vector& v);
 bool operator==(const Vector& other) const;
 bool operator!=(const Vector& other) const;
-afficher
+void afficher() const;
 };
 #endif
