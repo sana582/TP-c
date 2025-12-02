@@ -1,6 +1,6 @@
-ifndef SOMME_H 
-define SOMME_H
-include<iostream>
+#ifndef SOMME_H 
+#define SOMME_H
+#include<iostream>
 template<class T> T somme (const T* tab,int n)
 {
     ts=T();
