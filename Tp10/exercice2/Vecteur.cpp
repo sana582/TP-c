@@ -1,14 +1,25 @@
-#include "Vector.h"
+#include "Vecteur.h"
+#include "VecteurLimite.h"
+#include "VecteurCreation.h"
 #include <iostream>
 using namespace std;
-Vector::Vector() :
-Vector::Vector(int n){
-   nombreElements=n;
-   elements=new int[n];
-   for (int i=0; i<n;i++)
-   elements[i]=0;
+
+Vecteur::Vecteur(int n)
+{
+    if (n <= 0)
+    {
+        throw VecteurCreation(n);   // exception création
+    }
+
+    nombreElements = n;
+    elements = new int[n];
+
+    for (int i = 0; i < n; i++)
+        elements[i] = 0;
 }
-Vector::~Vector() {
+
+Vecteur::~Vecteur()
+{
     delete[] elements;
 }
 
@@ -16,8 +27,8 @@ int & Vecteur::operator[](int i)
 {
     if (i < 0 || i >= nombreElements)
     {
-        VecteurLimite err;   // <<< instance de la classe vide
-        throw err;           // <<< on lance l’exception
+        throw VecteurLimite(i); 
     }
+
     return elements[i];
 }

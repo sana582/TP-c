@@ -1,9 +1,15 @@
+#ifndef VECTEUR_H
+#define VECTEUR_H
+
 class Vecteur
 {
-int nombreElements;
-int * elements;
+    int nombreElements;
+    int * elements;
+
 public:
-Vecteur (int);
-˜Vecteur ();
-int & operator [] (int);
+    Vecteur(int n);
+    ~Vecteur();
+    int & operator[](int i);
 };
+
+#endif

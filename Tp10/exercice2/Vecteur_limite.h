@@ -3,6 +3,10 @@
 
 class VecteurLimite
 {
+public:
+    int indice;  
+
+    VecteurLimite(int i) : indice(i) {}
 };
 
 #endif
